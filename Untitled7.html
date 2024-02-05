@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Untitled7</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>usis_task</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14777,24 +14777,7 @@ This is a not Prime Number
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Question 8</span>
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">transactions</span> <span class="n">WHERE</span> <span class="n">transaction_date</span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">transactions</span> <span class="n">WHERE</span> <span class="n">DATE</span><span class="p">(</span><span class="n">transaction_date</span><span class="p">)</span> <span class="o">=</span> <span class="n">DATE</span><span class="p">(</span><span class="n">NOW</span><span class="p">())</span> 
 </pre></div>
 
      </div>
@@ -14807,12 +14790,12 @@ This is a not Prime Number
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Twitter Task</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 <span class="k">def</span> <span class="nf">time_calc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
     <span class="n">time_diff</span> <span class="o">=</span> <span class="p">[]</span>
@@ -14827,11 +14810,11 @@ This is a not Prime Number
         <span class="k">else</span><span class="p">:</span>
             <span class="n">time_diff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span><span class="n">curr_diff</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="p">))</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">'Days ago'</span><span class="p">)</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">'time_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_diff</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
         
 <span class="k">def</span> <span class="nf">process_</span><span class="p">(</span><span class="n">inp</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-    
     <span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">timee</span> <span class="o">=</span> <span class="p">[],[],[]</span> 
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">inp</span><span class="p">):</span>
         <span class="n">name_input</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the Name here: "</span><span class="p">))</span>
@@ -14839,8 +14822,8 @@ This is a not Prime Number
         <span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name_input</span><span class="p">)</span>
         <span class="n">msg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message_input</span><span class="p">)</span>
         <span class="n">timee</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
-        
-    <span class="n">df</span><span class="p">[</span><span class="s1">'Name'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Message'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">timee</span> 
+    <span class="n">id_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">inp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>  
+    <span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Name'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Message'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">id_</span><span class="p">,</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">timee</span> 
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">harip</span><span class="se">\\</span><span class="s1">twitter.csv'</span><span class="p">)</span>
     
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">harip</span><span class="se">\\</span><span class="s1">twitter.csv'</span><span class="p">)</span>
@@ -14872,35 +14855,19 @@ This is a not Prime Number
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>2
-Enter the Name here: AAA
-Enter the Message: this is aaa
+Enter the Name here: aaaa
+Enter the Message: this is aaaa
 Enter the Name here: bbb
-Enter the Message: this is bbb
-   Unnamed: 0 Name      Message          Time     time_diff
-0           0  AAA  this is aaa  1.707120e+09  7seconds ago
-1           1  bbb  this is bbb  1.707120e+09  0seconds ago
+Enter the Message: this is bbbb
+   id  Name       Message          Time     time_diff
+0   1  aaaa  this is aaaa  1.707122e+09  5seconds ago
+1   2   bbb  this is bbbb  1.707122e+09  0seconds ago
 </pre>
 </div>
 </div>
 
 </div>
 
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
